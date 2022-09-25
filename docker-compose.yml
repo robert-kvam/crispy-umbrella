@@ -8,7 +8,7 @@ volumes:
   postgres-s3:
     external: true
   gitea-s3:
-    external: false
+    external: true
 
 services:
   server:
