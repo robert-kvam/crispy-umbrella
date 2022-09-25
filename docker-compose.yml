@@ -14,14 +14,8 @@ services:
   server:
     image: gitea/gitea:1.17.1
     container_name: gitea
-    environment:
-      - USER_UID=1000
-      - USER_GID=1000
-      - GITEA__database__DB_TYPE=postgres
-      - GITEA__database__HOST=db:5432
-      - GITEA__database__NAME=gitea
-      - GITEA__database__USER=gitea
-      - GITEA__database__PASSWD=gitea
+    env_file:
+      - server.env
     restart: always
     networks:
       - gitea
@@ -37,10 +31,8 @@ services:
   db:
     image: postgres:14
     restart: always
-    environment:
-      - POSTGRES_USER=gitea
-      - POSTGRES_PASSWORD=gitea
-      - POSTGRES_DB=gitea
+    env_file:
+      - database.env
     networks:
       - gitea
     volumes:
