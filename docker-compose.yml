@@ -4,6 +4,12 @@ networks:
   gitea:
     external: false
 
+volumes:
+  postgres-s3:
+    external: true
+  gitea-s3:
+    external: true
+
 services:
   server:
     image: gitea/gitea:1.17.1
