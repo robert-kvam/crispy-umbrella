@@ -6,9 +6,9 @@ networks:
 
 volumes:
   postgres-s3:
-    external: true
+    driver: local
   gitea-s3:
-    external: true
+    driver: local
 
 services:
   server:
@@ -34,7 +34,6 @@ services:
       - "2221:22"
     depends_on:
        - db
-
   db:
     image: postgres:14
     restart: always
