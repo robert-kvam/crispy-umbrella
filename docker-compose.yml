@@ -14,8 +14,10 @@ services:
   server:
     image: gitea/gitea:1.17.1
     container_name: gitea
+    environment:
+      - name
     env_file:
-      - server.env
+      - stack.env
     restart: always
     networks:
       - gitea
@@ -32,7 +34,7 @@ services:
     image: postgres:14
     restart: always
     env_file:
-      - database.env
+      - stack.env
     networks:
       - gitea
     volumes:
