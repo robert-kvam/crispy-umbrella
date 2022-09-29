@@ -14,8 +14,6 @@ services:
   server:
     image: gitea/gitea:1.17.1
     container_name: gitea
-    environment:
-      - name
     env_file:
       - stack.env
     restart: always
